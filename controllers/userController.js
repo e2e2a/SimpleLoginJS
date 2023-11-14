@@ -52,3 +52,19 @@ module.exports.update = async (request, response) => {
 }
 
 }
+module.exports.delete = async(req,res) => {
+    const userId = req.params.userId
+    try{
+        const deletedUser = await User.findByIdAndDelete(userId);
+        if(deletedUser){
+            console.log('User Deleted');
+            return res.status(200).send('/user/list');
+        } else{
+            console.log('failed to delete');
+            return res.status(404).send('err', err)
+        }
+    }catch(err){
+        console.log('err', err);
+        return res.status(500).send('err', err.message);
+    }
+}

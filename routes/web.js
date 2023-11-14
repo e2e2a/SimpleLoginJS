@@ -26,4 +26,5 @@ module.exports = function(app){
     app.get('/user/list', userController.index);
     app.get('/user/:userId', userController.view);
     app.post('/user/:userId/update', userController.update);
+    app.post('/user/:userId/delete', userController.delete);
 }
