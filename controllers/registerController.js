@@ -18,7 +18,7 @@ module.exports.submit = (request, response) => {
     });
     user.save().then(() => {
         console.log('success')
-        return response.render('registration-success');
+        return response.redirect('/login');
     }, () => {
         console.log('failed')
         return response.render('registration-failed');
