@@ -58,7 +58,7 @@ module.exports.delete = async(req,res) => {
         const deletedUser = await User.findByIdAndDelete(userId);
         if(deletedUser){
             console.log('User Deleted');
-            return res.redirect('/user/list');
+            return res.status(200).send('/user/list');
         } else{
             console.log('failed to delete');
             return res.status(404).send('err', err)
